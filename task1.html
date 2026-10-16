@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Task 1 &middot; HTML5 Validation</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Assignment #4 &middot; Forms &amp; Validation</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="task0.html">Task 0</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="task1.html">Task 1</a></li>
+          <li class="nav-item"><a class="nav-link" href="task2.html">Task 2</a></li>
+          <li class="nav-item"><a class="nav-link" href="task3.html">Task 3</a></li>
+          <li class="nav-item"><a class="nav-link" href="task4.html">Task 4</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="py-5">
+    <div class="container">
+      <header class="mb-4">
+        <p class="text-uppercase text-secondary small mb-1">Part 1 &middot; Basic HTML Forms</p>
+        <h1 class="page-heading h3 mb-2">Task 1 &mdash; Form with HTML5 Validation</h1>
+        <p class="text-secondary mb-0">
+          The same contact form, now with built-in validation attributes. No JavaScript is used on this page:
+          the browser itself blocks the submit and shows its own error messages.
+        </p>
+      </header>
+
+      <div class="row g-4">
+        <div class="col-lg-7">
+          <div class="card">
+            <div class="card-body p-4">
+              <h2 class="h5 mb-4">Contact us</h2>
+
+              <form class="plain-form" method="post" action="#">
+                <div class="mb-3">
+                  <label for="name">Name</label>
+                  <input type="text" id="name" name="name"
+                         required minlength="2" maxlength="60"
+                         placeholder="Jane Doe" autocomplete="name">
+                </div>
+
+                <div class="mb-3">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email"
+                         required placeholder="jane.doe@example.com" autocomplete="email">
+                </div>
+
+                <div class="mb-3">
+                  <label for="phone">Phone (optional)</label>
+                  <input type="tel" id="phone" name="phone"
+                         pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                         title="Use the format 123-456-7890"
+                         placeholder="123-456-7890" autocomplete="tel">
+                </div>
+
+                <div class="mb-3">
+                  <label for="message">Message</label>
+                  <textarea id="message" name="message" rows="5"
+                            required minlength="10" maxlength="300"
+                            placeholder="How can we help you?"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="card mb-4">
+            <div class="card-body p-4">
+              <h2 class="h5 mb-3">Which attribute does what</h2>
+              <div class="table-responsive">
+                <table class="table table-sm align-middle mb-0">
+                  <thead>
+                    <tr>
+                      <th scope="col">Attribute</th>
+                      <th scope="col">Field</th>
+                      <th scope="col">Rule</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><span class="attr-badge">required</span></td>
+                      <td>Name, Email, Message</td>
+                      <td>The field must not be empty.</td>
+                    </tr>
+                    <tr>
+                      <td><span class="attr-badge">type="email"</span></td>
+                      <td>Email</td>
+                      <td>The value must look like an email address.</td>
+                    </tr>
+                    <tr>
+                      <td><span class="attr-badge">minlength</span></td>
+                      <td>Name, Message</td>
+                      <td>A minimum number of characters.</td>
+                    </tr>
+                    <tr>
+                      <td><span class="attr-badge">maxlength</span></td>
+                      <td>Name, Message</td>
+                      <td>A maximum number of characters.</td>
+                    </tr>
+                    <tr>
+                      <td><span class="attr-badge">pattern</span></td>
+                      <td>Phone</td>
+                      <td>Must match the 123-456-7890 format.</td>
+                    </tr>
+                    <tr>
+                      <td><span class="attr-badge">title</span></td>
+                      <td>Phone</td>
+                      <td>Hint shown inside the validation message.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body p-4">
+              <h2 class="h5 mb-3">Test it</h2>
+              <ul class="mb-3">
+                <li>Press Submit with everything empty &rarr; the browser stops the form.</li>
+                <li>Type <em>not-an-email</em> &rarr; the email field is rejected.</li>
+                <li>Type <em>5551234</em> in the phone field &rarr; the <code>pattern</code> fails.</li>
+                <li>Write a 3-character message &rarr; <code>minlength="10"</code> fails.</li>
+                <li>Fill everything correctly &rarr; the form is submitted.</li>
+              </ul>
+              <div class="demo-note p-3">
+                <p class="mb-0 small">
+                  The error bubbles are drawn by the browser, so they cannot be styled. Task 3 replaces them
+                  with Bootstrap feedback messages.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-dark text-white-50 py-4 mt-5">
+    <div class="container d-flex flex-column flex-sm-row justify-content-between gap-2 small">
+      <span>Assignment #4 &mdash; Forms and Validation</span>
+      <span>Li Yixin &middot; Group SE-2526</span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Task 4 &middot; Registration Form</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Assignment #4 &middot; Forms &amp; Validation</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="task0.html">Task 0</a></li>
+          <li class="nav-item"><a class="nav-link" href="task1.html">Task 1</a></li>
+          <li class="nav-item"><a class="nav-link" href="task2.html">Task 2</a></li>
+          <li class="nav-item"><a class="nav-link" href="task3.html">Task 3</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="task4.html">Task 4</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="py-5">
+    <div class="container">
+      <header class="mb-4">
+        <p class="text-uppercase text-secondary small mb-1">Part 3 &middot; Advanced Form Project</p>
+        <h1 class="page-heading h3 mb-2">Task 4 &mdash; Registration Form</h1>
+        <p class="text-secondary mb-0">
+          A responsive registration form built with the Bootstrap grid. It combines the HTML5 validation
+          attributes of Task 1 with the Bootstrap feedback classes of Task 3.
+        </p>
+      </header>
+
+      <div class="row g-4">
+        <div class="col-lg-8">
+          <div class="card">
+            <div class="card-body p-4">
+              <h2 class="h5 mb-4">Create your account</h2>
+
+              <div class="alert alert-success d-none" data-success-alert role="alert">
+                <strong>Registration successful!</strong> All fields passed validation.
+                <span class="d-block small">This is a front-end demo, so the data was not sent anywhere.</span>
+              </div>
+
+              <form class="needs-validation" method="post" action="#" novalidate>
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label" for="firstName">First Name <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="firstName" name="firstName"
+                           required minlength="2" maxlength="40" placeholder="Jane"
+                           autocomplete="given-name"
+                           data-error-required="First name is required."
+                           data-error-invalid="Please enter at least 2 characters.">
+                    <div class="valid-feedback">Looks good!</div>
+                    <div class="invalid-feedback">First name is required.</div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label" for="lastName">Last Name <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="lastName" name="lastName"
+                           required minlength="2" maxlength="40" placeholder="Doe"
+                           autocomplete="family-name"
+                           data-error-required="Last name is required."
+                           data-error-invalid="Please enter at least 2 characters.">
+                    <div class="valid-feedback">Looks good!</div>
+                    <div class="invalid-feedback">Last name is required.</div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label" for="email">Email <span class="text-danger">*</span></label>
+                    <input type="email" class="form-control" id="email" name="email"
+                           required placeholder="jane.doe@example.com"
+                           autocomplete="email"
+                           data-error-required="Email is required."
+                           data-error-invalid="Please enter a valid email address.">
+                    <div class="valid-feedback">Looks good!</div>
+                    <div class="invalid-feedback">Email is required.</div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label" for="country">Country <span class="text-danger">*</span></label>
+                    <select class="form-select" id="country" name="country" required
+                            data-error-required="Please choose your country.">
+                      <option value="" selected disabled>Choose your country...</option>
+                      <option value="kz">Kazakhstan</option>
+                      <option value="ru">Russia</option>
+                      <option value="cn">China</option>
+                      <option value="de">Germany</option>
+                      <option value="tr">Turkey</option>
+                      <option value="gb">United Kingdom</option>
+                      <option value="us">United States</option>
+                      <option value="other">Other</option>
+                    </select>
+                    <div class="valid-feedback">Looks good!</div>
+                    <div class="invalid-feedback">Please choose your country.</div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label" for="password">Password <span class="text-danger">*</span></label>
+                    <input type="password" class="form-control" id="password" name="password"
+                           required minlength="8" pattern="(?=.*[A-Za-z])(?=.*\d).{8,}"
+                           placeholder="At least 8 characters"
+                           title="At least 8 characters, including one letter and one number"
+                           autocomplete="new-password"
+                           data-error-required="Password is required."
+                           data-error-invalid="Use at least 8 characters with one letter and one number.">
+                    <div class="form-text">Minimum 8 characters, with one letter and one number.</div>
+                    <div class="valid-feedback">Looks good!</div>
+                    <div class="invalid-feedback">Use at least 8 characters with one letter and one number.</div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label" for="confirmPassword">Confirm Password <span class="text-danger">*</span></label>
+                    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
+                           required data-match="#password"
+                           placeholder="Repeat your password"
+                           autocomplete="new-password"
+                           data-error-required="Please confirm your password."
+                           data-error-invalid="Passwords do not match.">
+                    <div class="form-text">Must be identical to the password above.</div>
+                    <div class="valid-feedback">Passwords match.</div>
+                    <div class="invalid-feedback">Passwords do not match.</div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label d-block mb-2">Gender <span class="text-danger">*</span></label>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gender" id="genderFemale"
+                             value="female" required data-error-required="Please select a gender.">
+                      <label class="form-check-label" for="genderFemale">Female</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gender" id="genderMale"
+                             value="male" required data-error-required="Please select a gender.">
+                      <label class="form-check-label" for="genderMale">Male</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gender" id="genderOther"
+                             value="other" required data-error-required="Please select a gender.">
+                      <label class="form-check-label" for="genderOther">Other</label>
+                      <div class="invalid-feedback">Please select a gender.</div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label d-block mb-2">
+                      Hobbies <span class="text-secondary fw-normal">(optional)</span>
+                    </label>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" name="hobbies" id="hobbyCoding" value="coding">
+                      <label class="form-check-label" for="hobbyCoding">Coding</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" name="hobbies" id="hobbySports" value="sports">
+                      <label class="form-check-label" for="hobbySports">Sports</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" name="hobbies" id="hobbyMusic" value="music">
+                      <label class="form-check-label" for="hobbyMusic">Music</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" name="hobbies" id="hobbyTravel" value="travel">
+                      <label class="form-check-label" for="hobbyTravel">Travel</label>
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <hr class="my-2">
+                    <div class="d-flex flex-wrap gap-2">
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                      <button type="reset" class="btn btn-outline-secondary">Reset</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="card mb-4">
+            <div class="card-body p-4">
+              <h2 class="h5 mb-3">Validation rules</h2>
+              <div class="table-responsive">
+                <table class="table table-sm align-middle mb-0">
+                  <thead>
+                    <tr>
+                      <th scope="col">Field</th>
+                      <th scope="col">Rule</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>First / Last name</td>
+                      <td><span class="attr-badge">required</span> <span class="attr-badge">minlength="2"</span></td>
+                    </tr>
+                    <tr>
+                      <td>Email</td>
+                      <td><span class="attr-badge">type="email"</span> <span class="attr-badge">required</span></td>
+                    </tr>
+                    <tr>
+                      <td>Country</td>
+                      <td><span class="attr-badge">required</span> on a select</td>
+                    </tr>
+                    <tr>
+                      <td>Password</td>
+                      <td><span class="attr-badge">minlength="8"</span> <span class="attr-badge">pattern</span></td>
+                    </tr>
+                    <tr>
+                      <td>Confirm password</td>
+                      <td><code>setCustomValidity()</code> comparison</td>
+                    </tr>
+                    <tr>
+                      <td>Gender</td>
+                      <td><span class="attr-badge">required</span> radio group</td>
+                    </tr>
+                    <tr>
+                      <td>Hobbies</td>
+                      <td>Checkboxes, no constraint</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="card mb-4">
+            <div class="card-body p-4">
+              <h2 class="h5 mb-3">Responsive layout</h2>
+              <p class="mb-0">
+                Fields sit in a <span class="attr-badge">row g-3</span> grid. Each one uses
+                <span class="attr-badge">col-md-6</span>, so on phones the form is a single column and from
+                the medium breakpoint up it becomes two columns.
+              </p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body p-4">
+              <h2 class="h5 mb-3">Try these cases</h2>
+              <ul class="mb-0">
+                <li>Submit while everything is empty &rarr; every field turns red.</li>
+                <li>Short password like <em>abc123</em> &rarr; pattern and minlength fail.</li>
+                <li>Two different passwords &rarr; "Passwords do not match."</li>
+                <li>No gender selected &rarr; the radio group is marked invalid.</li>
+                <li>Press Reset &rarr; all values and error states are cleared.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-dark text-white-50 py-4 mt-5">
+    <div class="container d-flex flex-column flex-sm-row justify-content-between gap-2 small">
+      <span>Assignment #4 &mdash; Forms and Validation</span>
+      <span>Li Yixin &middot; Group SE-2526</span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/form-validation.js"></script>
+</body>
+</html>

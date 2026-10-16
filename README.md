@@ -66,11 +66,14 @@ Bootstrap loaded from the jsDelivr CDN.
 
 ## Publish on GitHub Pages
 
-1. Push the project to GitHub.
-2. Open the repository → **Settings** → **Pages**.
-3. Under *Build and deployment* choose **Deploy from a branch**, select branch **main** and folder
-   **/(root)**, then save.
-4. The site becomes available at `https://cce-li.github.io/AITU-WT1-Assignment4/`.
+The repository ships with a Pages workflow (`.github/workflows/pages.yml`), so publishing is automatic:
+
+1. Push your changes to the `main` branch.
+2. The workflow uploads the repository root as a Pages artifact and deploys it.
+3. The site is served at `https://cce-li.github.io/AITU-WT1-Assignment4/`.
+
+If the deployment does not start, open **Settings → Pages** once and set *Source* to
+**GitHub Actions**.
 
 ## Built with
 
